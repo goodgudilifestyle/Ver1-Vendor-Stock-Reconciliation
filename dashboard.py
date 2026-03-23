@@ -151,6 +151,16 @@ st.markdown("""
     [data-testid="stDataFrame"] tbody td {
         font-weight: 500;
     }
+    /* ===== TAB TEXT COLOR FIX ===== */
+    button[role="tab"] {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Optional: active tab text also black */
+    button[role="tab"][aria-selected="true"] {
+        color: #000000 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
