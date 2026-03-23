@@ -20,6 +20,22 @@ header[data-testid="stHeader"] {
 .block-container {
     padding-top: 0.5rem !important;
 }
+            
+/* ===== SIDEBAR TOGGLE BUTTON FIX ===== */
+
+/* Target the toggle button */
+button[kind="header"] {
+    background-color: #2563eb !important;   /* blue background */
+    color: #ffffff !important;
+    border-radius: 8px !important;
+    padding: 6px 10px !important;
+}
+
+/* Hover effect */
+button[kind="header"]:hover {
+    background-color: #1e40af !important;
+    color: #ffffff !important;
+}
 </style>
 """, unsafe_allow_html=True)
 
