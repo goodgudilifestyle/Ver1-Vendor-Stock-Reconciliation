@@ -515,11 +515,13 @@ with tab1:
 
 with tab2:
     st.subheader("High Value Mismatch")
-    st.dataframe(
-        high_value_df.style.set_properties(**{"color": "#000000"}),
-        use_container_width=True,
-        height=500
-    )
+
+    styled_high_value = high_value_df.style.set_properties(**{
+        "color": "#ffffff",              # WHITE TEXT
+        "background-color": "#0f172a"    # DARK BACKGROUND
+    })
+
+    st.dataframe(styled_high_value, use_container_width=True, height=500)
 
 with tab3:
     st.subheader("Negative Mismatch")
