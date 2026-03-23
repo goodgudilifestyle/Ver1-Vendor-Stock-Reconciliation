@@ -122,6 +122,35 @@ st.markdown("""
     [data-testid="stSidebar"] * {
         color: #16324f !important;
     }
+            
+    /* ===== FIX TABLE TEXT VISIBILITY ===== */
+
+    /* Force black text inside dataframe */
+    [data-testid="stDataFrame"] * {
+        color: #111827 !important;
+    }
+    
+    /* Header styling (dark header like premium dashboards) */
+    [data-testid="stDataFrame"] thead {
+        background-color: #111827 !important;
+    }
+    [data-testid="stDataFrame"] thead th {
+        color: #ffffff !important;
+        font-weight: 600;
+    }
+    
+    /* Row background cleanup (remove pink wash issue) */
+    [data-testid="stDataFrame"] tbody tr {
+        background-color: #ffffff !important;
+    }
+    [data-testid="stDataFrame"] tbody tr:nth-child(even) {
+        background-color: #f8fafc !important;
+    }
+    
+    /* Improve readability */
+    [data-testid="stDataFrame"] tbody td {
+        font-weight: 500;
+    }
 </style>
 """, unsafe_allow_html=True)
 
