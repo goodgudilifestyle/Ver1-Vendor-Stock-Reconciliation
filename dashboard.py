@@ -491,8 +491,8 @@ st.markdown("")
 # Top mismatch table
 # ----------------------------
 st.markdown('<div class="section-card">', unsafe_allow_html=True)
-st.subheader("Top 15 Mismatch SKUs")
-top_mismatch = filtered_df.sort_values("Abs Difference", ascending=False).head(15)
+st.subheader("Top 100 Mismatch SKUs")
+top_mismatch = filtered_df.sort_values("Abs Difference", ascending=False).head(100)
 show_cols = [
     c for c in [
         "SKU", "Product Name", "Vendor Name", "Category",
@@ -501,7 +501,7 @@ show_cols = [
         "Decision Taken", "Decision By", "Decision Date","Pending Age (Days)", "Final Status"
     ] if c in top_mismatch.columns
 ]
-st.dataframe(top_mismatch[show_cols], use_container_width=True, height=420)
+st.dataframe(top_mismatch[show_cols], use_container_width=True, height=700)
 st.markdown('</div>', unsafe_allow_html=True)
 
 # ----------------------------
