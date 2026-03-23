@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import gspread
-import google.auth
+from google.oauth2.service_account import Credentials
 import streamlit.components.v1 as components
 from datetime import datetime
 
@@ -130,7 +130,10 @@ st.markdown("""
 # ----------------------------
 @st.cache_resource
 def get_gsheet_client():
-    creds, _ = google.auth.default(scopes=SCOPES)
+    creds = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],
+        scopes=SCOPES
+    )
     return gspread.authorize(creds)
 
 @st.cache_data(ttl=120)
