@@ -191,6 +191,33 @@ st.markdown("""
     button[role="tab"][aria-selected="true"] {
         color: #000000 !important;
     }
+            
+    /* ===== TAB BUTTON FULL STYLING ===== */
+
+    /* All tabs */
+    button[role="tab"] {
+        background-color: #ffffff !important;   /* default background */
+        color: #16324f !important;              /* text color */
+        border-radius: 8px !important;
+        padding: 6px 14px !important;
+        margin-right: 6px !important;
+        border: 1px solid #d8e5f2 !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease-in-out;
+    }
+    
+    /* Hover effect */
+    button[role="tab"]:hover {
+        background-color: #e8f1fb !important;
+        color: #16324f !important;
+    }
+    
+    /* Active tab (selected one) */
+    button[role="tab"][aria-selected="true"] {
+        background-color: #2563eb !important;   /* BLUE active */
+        color: #ffffff !important;
+        border: none !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
