@@ -129,7 +129,7 @@ st.markdown("""
     [data-testid="stDataFrame"] * {
         color: #111827 !important;
     }
-    
+
     /* Header styling (dark header like premium dashboards) */
     [data-testid="stDataFrame"] thead {
         background-color: #111827 !important;
@@ -138,7 +138,7 @@ st.markdown("""
         color: #ffffff !important;
         font-weight: 600;
     }
-    
+
     /* Row background cleanup (remove pink wash issue) */
     [data-testid="stDataFrame"] tbody tr {
         background-color: #ffffff !important;
@@ -146,7 +146,7 @@ st.markdown("""
     [data-testid="stDataFrame"] tbody tr:nth-child(even) {
         background-color: #f8fafc !important;
     }
-    
+
     /* Improve readability */
     [data-testid="stDataFrame"] tbody td {
         font-weight: 500;
@@ -448,11 +448,11 @@ with tab1:
 
     def highlight_priority(row):
         if row["Priority"] == "High":
-            return ["background-color: #ffe5e5"] * len(row)
+            return ["background-color: #ffe5e5; color: #000000"] * len(row)
         elif row["Priority"] == "Medium":
-            return ["background-color: #fff7e0"] * len(row)
+            return ["background-color: #fff7e0; color: #000000"] * len(row)
         else:
-            return [""] * len(row)
+            return ["color: #000000"] * len(row)
 
     full_reco_display_cols = [
         c for c in [
@@ -463,12 +463,23 @@ with tab1:
         ] if c in filtered_df.columns
     ]
 
-    styled_df = filtered_df[full_reco_display_cols].style.apply(highlight_priority, axis=1)
+    styled_df = (
+        filtered_df[full_reco_display_cols]
+        .style
+        .apply(highlight_priority, axis=1)
+        .set_properties(**{
+            "color": "#000000"
+        })
+    )
     st.dataframe(styled_df, use_container_width=True, height=500)
 
 with tab2:
     st.subheader("High Value Mismatch")
-    st.dataframe(high_value_df, use_container_width=True, height=500)
+    st.dataframe(
+        high_value_df.style.set_properties(**{"color": "#000000"}),
+        use_container_width=True,
+        height=500
+    )
 
 with tab3:
     st.subheader("Negative Mismatch")
