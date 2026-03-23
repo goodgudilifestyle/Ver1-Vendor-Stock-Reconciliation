@@ -235,21 +235,7 @@ st.markdown("""
         border: none !important;
     }
             
-    /* ===== REMOVE TOP BLACK BAR ===== */
-    st.markdown("""
-    <style>
-    /* Keep header functional, just make it transparent */
-    header[data-testid="stHeader"] {
-        background: transparent !important;
-        height: 0px !important;
-    }
-
-    /* Remove default toolbar spacing */
-    .block-container {
-        padding-top: 0.5rem !important;
-    }
-    </style>
-    """, unsafe_allow_html=True)
+    
 
     /* Remove extra top spacing after hiding */
     .block-container {
