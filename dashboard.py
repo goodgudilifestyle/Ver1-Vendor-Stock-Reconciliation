@@ -32,9 +32,10 @@ button[kind="header"] {
 }
 
 /* Hover effect */
-button[kind="header"]:hover {
-    background-color: #1e40af !important;
+button[aria-label="Toggle sidebar"] {
+    background-color: #2563eb !important;
     color: #ffffff !important;
+    border-radius: 8px !important;
 }
 </style>
 """, unsafe_allow_html=True)
