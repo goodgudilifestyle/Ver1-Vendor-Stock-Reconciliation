@@ -334,8 +334,7 @@ pending_count = 0
 if "Final Status" in filtered_df.columns:
     status_series = filtered_df["Final Status"].fillna("").astype(str).str.strip().str.lower()
     
-    status_series = filtered_df["Final Status"].fillna("").astype(str).str.strip().str.lower()
-
+    
     action_taken_count = (status_series.isin(["action taken", "resolved", "done"])).sum()
     pending_count = (status_series.isin(["pending", "open"])).sum()
 
@@ -466,7 +465,7 @@ with tab6:
         "Difference", "Reco Status", "Suggested Action"
     ]
 
-    decision_source_df = decision_source_df[decision_cols].drop_duplicates()
+    decision_source_df = decision_source_df[[c for c in decision_cols if c in decision_source_df.columns]].drop_duplicates()
 
     sku_options = decision_source_df["SKU"].astype(str).tolist()
 
