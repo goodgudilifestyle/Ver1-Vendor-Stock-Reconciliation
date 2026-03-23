@@ -20,23 +20,28 @@ header[data-testid="stHeader"] {
 .block-container {
     padding-top: 0.5rem !important;
 }
-            
-/* ===== SIDEBAR TOGGLE BUTTON FIX ===== */
+                        
 
-/* Target the toggle button */
-button[kind="header"] {
-    background-color: #2563eb !important;   /* blue background */
-    color: #ffffff !important;
+/* ===== SIDEBAR TOGGLE BUTTON (<< >>) FIX ===== */
+
+/* Button container */
+[data-testid="collapsedControl"] {
+    background-color: #2563eb !important;   /* blue */
     border-radius: 8px !important;
-    padding: 6px 10px !important;
+    padding: 6px !important;
+}
+
+/* Icon inside button */
+[data-testid="collapsedControl"] svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
 }
 
 /* Hover effect */
-button[aria-label="Toggle sidebar"] {
-    background-color: #2563eb !important;
-    color: #ffffff !important;
-    border-radius: 8px !important;
+[data-testid="collapsedControl"]:hover {
+    background-color: #1e40af !important;
 }
+            
 </style>
 """, unsafe_allow_html=True)
 
