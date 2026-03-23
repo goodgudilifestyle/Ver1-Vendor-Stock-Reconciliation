@@ -205,18 +205,28 @@ st.markdown("""
         font-weight: 600 !important;
         transition: all 0.2s ease-in-out;
     }
-    
+
     /* Hover effect */
     button[role="tab"]:hover {
         background-color: #e8f1fb !important;
         color: #16324f !important;
     }
-    
+
     /* Active tab (selected one) */
     button[role="tab"][aria-selected="true"] {
         background-color: #2563eb !important;   /* BLUE active */
         color: #ffffff !important;
         border: none !important;
+    }
+            
+    /* ===== REMOVE TOP BLACK BAR ===== */
+    header[data-testid="stHeader"] {
+        display: none;
+    }
+    
+    /* Remove extra top spacing after hiding */
+    .block-container {
+        padding-top: 0rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
