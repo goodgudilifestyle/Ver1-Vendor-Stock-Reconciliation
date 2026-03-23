@@ -327,6 +327,18 @@ with k5:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">Absolute Difference Qty</div><div class="kpi-value">{abs_diff_qty:,.0f}</div></div>', unsafe_allow_html=True)
 with k6:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">High Priority</div><div class="kpi-value">{high_priority_count:,}</div></div>', unsafe_allow_html=True)
+
+action_taken_count = 0
+pending_count = 0
+
+if "Final Status" in filtered_df.columns:
+    status_series = filtered_df["Final Status"].fillna("").astype(str).str.strip().str.lower()
+    
+    status_series = filtered_df["Final Status"].fillna("").astype(str).str.strip().str.lower()
+
+    action_taken_count = (status_series.isin(["action taken", "resolved", "done"])).sum()
+    pending_count = (status_series.isin(["pending", "open"])).sum()
+
 with k7:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">Action Taken</div><div class="kpi-value">{action_taken_count:,}</div></div>', unsafe_allow_html=True)
 
