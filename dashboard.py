@@ -68,6 +68,23 @@ st.markdown("""
         box-shadow: 0 6px 18px rgba(44, 82, 130, 0.08);
         margin-bottom: 16px;
     }
+            
+    /* ===== DARK TABLE TEXT FIX ===== */
+
+    /* Make text white for all tables */
+    [data-testid="stDataFrame"] * {
+        color: #ffffff !important;
+    }
+
+    /* Keep header white */
+    [data-testid="stDataFrame"] thead th {
+        color: #ffffff !important;
+    }
+
+    /* Optional: slightly softer white for readability */
+    [data-testid="stDataFrame"] tbody td {
+        color: #f9fafb !important;
+    }
 
     .hero-box {
         background: linear-gradient(135deg, #ffffff 0%, #edf5ff 100%);
@@ -125,11 +142,24 @@ st.markdown("""
             
     /* ===== FIX TABLE TEXT VISIBILITY ===== */
 
-    /* Force black text inside dataframe */
-    [data-testid="stDataFrame"] * {
-        color: #111827 !important;
+    /* ===== METRIC TEXT FIX ===== */
+
+    /* Metric labels */
+    [data-testid="stMetricLabel"] {
+        color: #16324f !important;
     }
 
+    /* Metric values (main numbers) */
+    [data-testid="stMetricValue"] {
+        color: #000000 !important;
+        font-weight: 700 !important;
+    }
+
+    /* Metric delta (if any) */
+    [data-testid="stMetricDelta"] {
+        color: #000000 !important;
+    }
+            
     /* Header styling (dark header like premium dashboards) */
     [data-testid="stDataFrame"] thead {
         background-color: #111827 !important;
