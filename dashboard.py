@@ -11,6 +11,18 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown("""
+<style>
+header[data-testid="stHeader"] {
+    background: transparent !important;
+}
+
+.block-container {
+    padding-top: 0.5rem !important;
+}
+</style>
+""", unsafe_allow_html=True)
+
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
@@ -224,9 +236,20 @@ st.markdown("""
     }
             
     /* ===== REMOVE TOP BLACK BAR ===== */
+    st.markdown("""
+    <style>
+    /* Keep header functional, just make it transparent */
     header[data-testid="stHeader"] {
-        display: none;
+        background: transparent !important;
+        height: 0px !important;
     }
+
+    /* Remove default toolbar spacing */
+    .block-container {
+        padding-top: 0.5rem !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
     /* Remove extra top spacing after hiding */
     .block-container {
