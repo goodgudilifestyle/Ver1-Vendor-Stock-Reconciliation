@@ -5,7 +5,11 @@ from google.oauth2.service_account import Credentials
 import streamlit.components.v1 as components
 from datetime import datetime
 
-st.set_page_config(page_title="All Stock Reco Dashboard", layout="wide")
+st.set_page_config(
+    page_title="All Stock Reco Dashboard",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -223,10 +227,10 @@ st.markdown("""
     header[data-testid="stHeader"] {
         display: none;
     }
-    
+
     /* Remove extra top spacing after hiding */
     .block-container {
-        padding-top: 0rem !important;
+        padding-top: 0.5rem !important;
     }
 </style>
 """, unsafe_allow_html=True)
