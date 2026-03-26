@@ -84,20 +84,27 @@ st.markdown("""
         background: #ffffff;
         border: 1px solid #d8e5f2;
         border-radius: 18px;
-        padding: 18px 20px;
+        padding: 16px 18px;
         box-shadow: 0 6px 18px rgba(44, 82, 130, 0.08);
+        min-height: 118px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .kpi-label {
         font-size: 13px;
         color: #5f7185;
         margin-bottom: 8px;
+        white-space: nowrap;
     }
 
     .kpi-value {
-        font-size: 32px;
+        font-size: 28px;
         font-weight: 700;
         color: #16324f;
+        white-space: nowrap;
+        line-height: 1.1;
     }
 
     .section-card {
@@ -264,6 +271,29 @@ st.markdown("""
     /* Remove extra top spacing after hiding */
     .block-container {
         padding-top: 0.5rem !important;
+    }
+            
+        /* ===== SIDEBAR INPUT TEXT FIX ===== */
+    section[data-testid="stSidebar"] label {
+        color: #16324f !important;
+        font-weight: 600 !important;
+    }
+
+    section[data-testid="stSidebar"] .stTextInput input,
+    section[data-testid="stSidebar"] textarea,
+    section[data-testid="stSidebar"] [data-baseweb="select"] > div,
+    section[data-testid="stSidebar"] [data-baseweb="tag"] {
+        color: #ffffff !important;
+    }
+
+    section[data-testid="stSidebar"] .stTextInput input::placeholder {
+        color: #cbd5e1 !important;
+        opacity: 1 !important;
+    }
+
+    section[data-testid="stSidebar"] svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -465,7 +495,7 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-k1, k2, k3, k4, k5, k6, k7, k8 = st.columns(8)
+k1, k2, k3, k4, k5, k6, k7, k8 = st.columns([1.15, 1.15, 1.15, 1.35, 1.35, 0.95, 0.95, 0.95])
 
 with k1:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">Total SKUs</div><div class="kpi-value">{total_skus:,}</div></div>', unsafe_allow_html=True)
@@ -474,9 +504,9 @@ with k2:
 with k3:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">Mismatched SKUs</div><div class="kpi-value">{mismatch_skus:,}</div></div>', unsafe_allow_html=True)
 with k4:
-    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Net Difference Qty</div><div class="kpi-value">{net_diff_qty:,.0f}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Net Diff Qty</div><div class="kpi-value">{net_diff_qty:,.0f}</div></div>', unsafe_allow_html=True)
 with k5:
-    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Absolute Difference Qty</div><div class="kpi-value">{abs_diff_qty:,.0f}</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="kpi-card"><div class="kpi-label">Abs Diff Qty</div><div class="kpi-value">{abs_diff_qty:,.0f}</div></div>', unsafe_allow_html=True)
 with k6:
     st.markdown(f'<div class="kpi-card"><div class="kpi-label">High Priority</div><div class="kpi-value">{high_priority_count:,}</div></div>', unsafe_allow_html=True)
 
@@ -776,3 +806,4 @@ st.markdown("""
 Dashboard Developed By Rohit_Chougule @ Goodgudi Retail Pvt Ltd Co.
 </div>
 """, unsafe_allow_html=True)
+
