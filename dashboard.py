@@ -183,37 +183,44 @@ st.markdown("""
         font-size: 13px;
     }
 
-    [data-testid="stSidebar"] * {
-        color: #16324f !important;
-    }
             
-    /* ===== FIX TABLE TEXT VISIBILITY ===== */
+    
 
     /* ===== METRIC TEXT FIX ===== */
 
-    /* Metric labels */
-    [data-testid="stMetricLabel"] {
-        color: #16324f !important;
-    }
+    /* ===== SIDEBAR INPUT TEXT FIX (FINAL) ===== */
 
-    /* Metric values (main numbers) */
-    [data-testid="stMetricValue"] {
-        color: #000000 !important;
-        font-weight: 700 !important;
-    }
-
-    /* Metric delta (if any) */
-    [data-testid="stMetricDelta"] {
-        color: #000000 !important;
-    }
-            
-    /* Header styling (dark header like premium dashboards) */
-    [data-testid="stDataFrame"] thead {
-        background-color: #111827 !important;
-    }
-    [data-testid="stDataFrame"] thead th {
+    /* Input text (typed text) */
+    section[data-testid="stSidebar"] input {
         color: #ffffff !important;
-        font-weight: 600;
+    }
+    
+    /* Placeholder text */
+    section[data-testid="stSidebar"] input::placeholder {
+        color: #cbd5e1 !important;
+        opacity: 1 !important;
+    }
+    
+    /* Dropdown selected value */
+    section[data-testid="stSidebar"] [data-baseweb="select"] span {
+        color: #ffffff !important;
+    }
+    
+    /* Dropdown arrow */
+    section[data-testid="stSidebar"] svg {
+        fill: #ffffff !important;
+        color: #ffffff !important;
+    }
+    
+    /* Multiselect chips */
+    section[data-testid="stSidebar"] [data-baseweb="tag"] {
+        color: #ffffff !important;
+    }
+    
+    /* Keep labels dark (important for contrast) */
+    section[data-testid="stSidebar"] label {
+        color: #16324f !important;
+        font-weight: 600 !important;
     }
 
     /* Row background cleanup (remove pink wash issue) */
