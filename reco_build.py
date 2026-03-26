@@ -1,6 +1,7 @@
 import pandas as pd
 import gspread
-import google.auth
+import streamlit as st
+from google.oauth2.service_account import Credentials
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -29,7 +30,10 @@ def build_reconciliation():
     # ----------------------------
     # Connect to Google Sheet
     # ----------------------------
-    creds, _ = google.auth.default(scopes=SCOPES)
+    creds = Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"],
+        scopes=SCOPES
+    )
     gc = gspread.authorize(creds)
     sh = gc.open_by_key(SHEET_ID)
 
