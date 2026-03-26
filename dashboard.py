@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
 import gspread
+from reco_build import build_reconciliation
 from google.oauth2.service_account import Credentials
 import streamlit.components.v1 as components
 from datetime import datetime
+
 
 st.set_page_config(
     page_title="All Stock Reco Dashboard",
@@ -381,6 +383,15 @@ reco_df["Priority"] = reco_df["Difference"].apply(get_priority)
 # Sidebar
 # ----------------------------
 st.sidebar.markdown("## Filters")
+
+
+# 🔄 ADD THIS BUTTON HERE
+if st.sidebar.button("🔄 Rebuild Reconciliation"):
+    with st.spinner("Rebuilding reconciliation..."):
+        build_reconciliation()
+        st.cache_data.clear()
+        st.success("Reconciliation rebuilt successfully.")
+        st.rerun()
 
 vendor_list = sorted([x for x in reco_df["Vendor Name"].dropna().astype(str).unique() if x.strip()]) if "Vendor Name" in reco_df.columns else []
 category_list = sorted([x for x in reco_df["Category"].dropna().astype(str).unique() if x.strip()]) if "Category" in reco_df.columns else []
