@@ -186,38 +186,43 @@ st.markdown("""
             
     
 
-    /* ===== METRIC TEXT FIX ===== */
+    
 
-    /* ===== SIDEBAR INPUT TEXT FIX (FINAL) ===== */
+    /* ===== FINAL SIDEBAR TEXT FIX ===== */
 
-    /* Input text (typed text) */
+    /* Input typed text */
     section[data-testid="stSidebar"] input {
         color: #ffffff !important;
     }
-    
-    /* Placeholder text */
+
+    /* Placeholder */
     section[data-testid="stSidebar"] input::placeholder {
         color: #cbd5e1 !important;
         opacity: 1 !important;
     }
-    
-    /* Dropdown selected value */
+
+    /* Select dropdown (VERY IMPORTANT FIX) */
     section[data-testid="stSidebar"] [data-baseweb="select"] span {
         color: #ffffff !important;
     }
-    
-    /* Dropdown arrow */
+
+    /* Dropdown container */
+    section[data-testid="stSidebar"] [data-baseweb="select"] div {
+        color: #ffffff !important;
+    }
+
+    /* Multi-select tags */
+    section[data-testid="stSidebar"] [data-baseweb="tag"] {
+        color: #ffffff !important;
+    }
+
+    /* Icons (arrow) */
     section[data-testid="stSidebar"] svg {
         fill: #ffffff !important;
         color: #ffffff !important;
     }
-    
-    /* Multiselect chips */
-    section[data-testid="stSidebar"] [data-baseweb="tag"] {
-        color: #ffffff !important;
-    }
-    
-    /* Keep labels dark (important for contrast) */
+
+    /* Labels stay dark */
     section[data-testid="stSidebar"] label {
         color: #16324f !important;
         font-weight: 600 !important;
